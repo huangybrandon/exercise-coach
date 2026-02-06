@@ -89,7 +89,7 @@ export default function HomeDashboard() {
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-6 pb-16 pt-8">
       <header className="flex flex-col gap-3">
-        <p className="text-xs uppercase tracking-[0.35em] text-slate-500">
+        <p className="text-sm uppercase tracking-[0.35em] text-slate-500">
           {t(language, "appName")}
         </p>
         <h1 className="text-4xl font-semibold text-slate-900">{greeting}</h1>
@@ -100,7 +100,7 @@ export default function HomeDashboard() {
 
       <section className="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
         <div className="rounded-3xl bg-white p-8 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+          <p className="text-base font-semibold uppercase tracking-[0.2em] text-slate-500">
             {t(language, "todayFocus")}
           </p>
           <h2 className="mt-3 text-2xl font-semibold text-slate-900">
@@ -112,13 +112,13 @@ export default function HomeDashboard() {
           {routines[0] ? (
             <Link
               href={`/routines/${routines[0].id}`}
-              className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-emerald-700 px-6 py-4 text-base font-semibold text-white hover:bg-emerald-600"
+              className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-emerald-700 px-6 py-4 text-lg font-semibold text-white hover:bg-emerald-600"
             >
               {t(language, "startLast")}
             </Link>
           ) : (
             <button
-              className="mt-6 w-full cursor-not-allowed rounded-full bg-slate-200 px-6 py-4 text-base font-semibold text-slate-500"
+              className="mt-6 w-full cursor-not-allowed rounded-full bg-slate-200 px-6 py-4 text-lg font-semibold text-slate-500"
               disabled
             >
               Start last routine
@@ -127,7 +127,7 @@ export default function HomeDashboard() {
         </div>
 
         <div className="rounded-3xl bg-white p-8 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+          <p className="text-base font-semibold uppercase tracking-[0.2em] text-slate-500">
             {t(language, "streak")}
           </p>
           <div className="mt-4 flex items-end gap-4">
@@ -140,7 +140,7 @@ export default function HomeDashboard() {
             {t(language, "longestStreak")}:{" "}
             <span className="font-semibold text-slate-800">{streak.longestStreak} {t(language, "daysInRow")}</span>
           </p>
-          <div className="mt-6 rounded-2xl bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+          <div className="mt-6 rounded-2xl bg-emerald-50 px-4 py-3 text-base text-emerald-800">
             {streak.currentStreak === 0
               ? t(language, "streakNudgeEmpty")
               : t(language, "streakNudgeKeep")}
@@ -151,7 +151,7 @@ export default function HomeDashboard() {
       <section className="rounded-3xl bg-white p-8 shadow-sm">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-semibold text-slate-900">{t(language, "routines")}</h2>
-          <span className="text-sm text-slate-500">
+          <span className="text-base text-slate-500">
             {routines.length} {t(language, "options")}
           </span>
         </div>
@@ -164,11 +164,11 @@ export default function HomeDashboard() {
             >
               <div className="flex items-center justify-between">
                 <span className="text-lg font-semibold text-slate-900">{routine.title}</span>
-                <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-600">
+                <span className="rounded-full bg-white px-3 py-1 text-sm font-semibold text-slate-600">
                   {routine.durationMinutes} min
                 </span>
               </div>
-              <div className="flex flex-wrap gap-2 text-xs text-slate-600">
+              <div className="flex flex-wrap gap-2 text-sm text-slate-600">
                 <span className="rounded-full bg-white px-3 py-1">Balance</span>
                 <span className="rounded-full bg-white px-3 py-1">Strength</span>
                 <span className="rounded-full bg-white px-3 py-1">Mobility</span>

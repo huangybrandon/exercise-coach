@@ -68,7 +68,7 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
             {t(language, "signInBody")}
           </p>
           <button
-            className="mt-6 w-full rounded-full bg-slate-900 px-6 py-3 text-base font-semibold text-white hover:bg-slate-800"
+            className="mt-6 w-full rounded-full bg-slate-900 px-6 py-3 text-lg font-semibold text-white hover:bg-slate-800"
             onClick={() => signInWithGoogle()}
           >
             {t(language, "signInButton")}
@@ -83,7 +83,7 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
       <div className="flex flex-wrap items-center justify-between gap-3 px-6 pt-6">
         <LanguageToggle />
         <button
-          className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100"
+          className="rounded-full border border-slate-300 px-4 py-2 text-base font-semibold text-slate-700 hover:bg-slate-100"
           onClick={() => signOut()}
         >
           {t(language, "signOut")}

@@ -75,7 +75,7 @@ export default function PlayerUI({
         </div>
         <button
           onClick={onToggleAudio}
-          className="rounded-full border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600"
+          className="rounded-full border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-600"
         >
           {state.audioEnabled ? t(language, "audioOn") : t(language, "audioOff")}
         </button>
@@ -99,17 +99,17 @@ export default function PlayerUI({
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 text-sm text-slate-600">
+        <div className="flex flex-wrap items-center gap-3 text-base text-slate-600">
           <span className="rounded-full bg-emerald-50 px-3 py-1 text-emerald-700">
             {t(language, "setLabel")} {state.currentSet} {t(language, "of")} {timing.sets}
           </span>
           {timing.perSide && !isRest && state.currentSide && (
-            <span className="rounded-full bg-slate-900 px-4 py-1 text-sm font-semibold uppercase tracking-[0.2em] text-white">
+            <span className="rounded-full bg-slate-900 px-4 py-1 text-base font-semibold uppercase tracking-[0.2em] text-white">
               {state.currentSide === "left" ? t(language, "left") : t(language, "right")}
             </span>
           )}
           {timing.mode === "reps" && timing.perSide && (
-            <span className="rounded-full bg-slate-100 px-3 py-1">{t(language, "perSide")}</span>
+            <span className="rounded-full bg-slate-100 px-3 py-1 text-base">{t(language, "perSide")}</span>
           )}
         </div>
 
@@ -136,21 +136,21 @@ export default function PlayerUI({
         <div className="flex flex-col gap-3 sm:flex-row">
           <button
             onClick={onBack}
-            className="flex-1 rounded-full border border-slate-200 px-6 py-3 text-base font-semibold text-slate-700 hover:bg-slate-100"
+            className="flex-1 rounded-full border border-slate-200 px-6 py-3 text-lg font-semibold text-slate-700 hover:bg-slate-100"
           >
             {t(language, "backButton")}
           </button>
           {!(isPrep && isRepBased) && (
             <button
               onClick={onNext}
-              className="flex-1 rounded-full bg-emerald-700 px-6 py-3 text-base font-semibold text-white hover:bg-emerald-600"
+              className="flex-1 rounded-full bg-emerald-700 px-6 py-3 text-lg font-semibold text-white hover:bg-emerald-600"
             >
               {isPrep && !isRepBased ? t(language, "startSet") : isRest ? t(language, "startSet") : t(language, "done")}
             </button>
           )}
           <button
             onClick={state.paused ? onResume : onPause}
-            className="flex-1 rounded-full border border-slate-200 px-6 py-3 text-base font-semibold text-slate-700 hover:bg-slate-100"
+            className="flex-1 rounded-full border border-slate-200 px-6 py-3 text-lg font-semibold text-slate-700 hover:bg-slate-100"
           >
             {state.paused ? t(language, "resume") : t(language, "pause")}
           </button>

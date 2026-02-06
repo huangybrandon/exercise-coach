@@ -12,7 +12,7 @@ export default function LanguageToggle() {
   const { language, setLanguage, loading } = useLanguage();
 
   return (
-    <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-2 py-1 text-xs font-semibold text-slate-600 shadow-sm">
+    <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-2 py-1 text-sm font-semibold text-slate-600 shadow-sm">
       {OPTIONS.map((option) => (
         <button
           key={option.value}

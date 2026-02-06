@@ -109,7 +109,7 @@ function PlayerFlow({ routine, exercises }: { routine: Routine; exercises: Exerc
       <header className="flex items-center justify-between">
         <Link
           href={`/routines/${routine.id}`}
-          className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700"
+          className="text-base font-semibold uppercase tracking-[0.2em] text-emerald-700"
         >
           {t(language, "back")}
         </Link>

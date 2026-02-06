@@ -30,8 +30,15 @@ export async function updateStreak(params: {
 }): Promise<Streak> {
   const supabase = createSupabaseClient();
 
+  type StreakRow = {
+    user_id: string;
+    current_streak: number;
+    longest_streak: number;
+    last_completed_date: string | null;
+  };
+
   const { data, error } = await supabase
-    .rpc("update_streak", {
+    .rpc<StreakRow>("update_streak", {
       p_user_id: params.userId,
       p_completed_local_date: params.completedLocalDate,
     })

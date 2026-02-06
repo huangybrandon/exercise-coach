@@ -108,7 +108,7 @@ function RoutinePreviewContent() {
       <header className="flex flex-col gap-3">
         <Link
           href="/"
-          className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700"
+          className="text-base font-semibold uppercase tracking-[0.2em] text-emerald-700"
         >
           {t(language, "back")}
         </Link>
@@ -118,7 +118,7 @@ function RoutinePreviewContent() {
         </p>
         <Link
           href={`/player/${routine.id}`}
-          className="mt-4 inline-flex items-center justify-center rounded-full bg-emerald-700 px-6 py-4 text-base font-semibold text-white hover:bg-emerald-600"
+          className="mt-4 inline-flex items-center justify-center rounded-full bg-emerald-700 px-6 py-4 text-lg font-semibold text-white hover:bg-emerald-600"
         >
           {t(language, "startRoutine")}
         </Link>
@@ -138,7 +138,7 @@ function RoutinePreviewContent() {
                 </p>
                 <p className="text-secondary">{exercise.translation.description}</p>
               </div>
-              <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-500">
+              <span className="rounded-full bg-white px-3 py-1 text-sm font-semibold text-slate-500">
                 {exercise.type}
               </span>
             </div>
