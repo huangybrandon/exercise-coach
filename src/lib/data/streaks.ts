@@ -42,17 +42,22 @@ export async function updateStreak(params: {
       p_user_id: params.userId,
       p_completed_local_date: params.completedLocalDate,
     })
-    .returns<StreakRow>()
-    .single();
+    .returns<StreakRow | StreakRow[]>();
 
   if (error) {
     throw new Error(`Failed to update streak: ${error.message}`);
   }
 
+  const row = (Array.isArray(data) ? data[0] : data) as StreakRow | undefined;
+
+  if (!row) {
+    throw new Error("Failed to update streak: no data returned.");
+  }
+
   return {
-    userId: data.user_id,
-    currentStreak: data.current_streak,
-    longestStreak: data.longest_streak,
-    lastCompletedDate: data.last_completed_date,
+    userId: row.user_id,
+    currentStreak: row.current_streak,
+    longestStreak: row.longest_streak,
+    lastCompletedDate: row.last_completed_date,
   };
 }
