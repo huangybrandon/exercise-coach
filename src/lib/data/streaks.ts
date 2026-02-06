@@ -38,10 +38,11 @@ export async function updateStreak(params: {
   };
 
   const { data, error } = await supabase
-    .rpc<StreakRow>("update_streak", {
+    .rpc("update_streak", {
       p_user_id: params.userId,
       p_completed_local_date: params.completedLocalDate,
     })
+    .returns<StreakRow>()
     .single();
 
   if (error) {
