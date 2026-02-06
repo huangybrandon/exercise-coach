@@ -1,0 +1,400 @@
+{
+  "exercises": [
+    {
+      "id": "single_leg_balance",
+      "type": "balance",
+      "title": { "en": "Single-Leg Balance Hold", "zh-TW": "單腳平衡站立" },
+      "description": {
+        "en": "Stand tall and lift one foot slightly. Use a chair for support if needed.",
+        "zh-TW": "站直，輕輕抬起一隻腳。如需要可扶著椅子。"
+      },
+      "cues": {
+        "en": ["Look forward", "Keep hips level", "Breathe steadily"],
+        "zh-TW": ["看向前方", "骨盆保持水平", "穩定呼吸"]
+      },
+      "safety": {
+        "en": "Hold onto a chair if balance feels unsteady.",
+        "zh-TW": "若覺得不穩，請扶著椅子。"
+      },
+      "media": {
+        "videoUrl": "videos/single_leg_balance.mp4",
+        "posterUrl": "images/single_leg_balance.jpg"
+      },
+      "timing": { "mode": "hold", "seconds": 20, "sets": 2, "restSeconds": 20, "perSide": true }
+    },
+    {
+      "id": "tandem_stance",
+      "type": "balance",
+      "title": { "en": "Tandem Stance", "zh-TW": "前後腳並立" },
+      "description": {
+        "en": "Stand heel-to-toe with one foot in front of the other.",
+        "zh-TW": "一腳跟貼另一腳尖站立。"
+      },
+      "cues": {
+        "en": ["Light hand support", "Soft knees", "Steady breathing"],
+        "zh-TW": ["可輕扶支撐物", "膝蓋微彎", "穩定呼吸"]
+      },
+      "safety": {
+        "en": "Stand near a wall or chair for support.",
+        "zh-TW": "請靠近牆或椅子以便扶握。"
+      },
+      "media": {
+        "videoUrl": "videos/tandem_stance.mp4",
+        "posterUrl": "images/tandem_stance.jpg"
+      },
+      "timing": { "mode": "hold", "seconds": 20, "sets": 2, "restSeconds": 20, "perSide": true }
+    },
+    {
+      "id": "heel_to_toe_walk",
+      "type": "balance",
+      "title": { "en": "Heel-to-Toe Walk", "zh-TW": "腳跟接腳尖走" },
+      "description": {
+        "en": "Walk slowly in a straight line, placing the heel in front of the toes.",
+        "zh-TW": "沿直線慢走，腳跟貼腳尖。"
+      },
+      "cues": {
+        "en": ["Go slowly", "Look forward", "Use wall for light support"],
+        "zh-TW": ["慢慢走", "看向前方", "可輕扶牆面"]
+      },
+      "safety": {
+        "en": "Use a wall for balance if needed.",
+        "zh-TW": "如需可扶牆以保持平衡。"
+      },
+      "media": {
+        "videoUrl": "videos/heel_to_toe_walk.mp4",
+        "posterUrl": "images/heel_to_toe_walk.jpg"
+      },
+      "timing": { "mode": "timed", "seconds": 30, "sets": 2, "restSeconds": 20 }
+    },
+    {
+      "id": "weight_shifts",
+      "type": "balance",
+      "title": { "en": "Weight Shifts", "zh-TW": "重心移動" },
+      "description": {
+        "en": "Shift weight side-to-side and forward-back with control.",
+        "zh-TW": "左右、前後緩慢移動重心。"
+      },
+      "cues": {
+        "en": ["Small movements", "Stay tall", "Move smoothly"],
+        "zh-TW": ["動作小而穩", "保持站直", "平順移動"]
+      },
+      "safety": {
+        "en": "Keep a chair nearby for support.",
+        "zh-TW": "可在旁邊放椅子以便扶握。"
+      },
+      "media": {
+        "videoUrl": "videos/weight_shifts.mp4",
+        "posterUrl": "images/weight_shifts.jpg"
+      },
+      "timing": { "mode": "timed", "seconds": 30, "sets": 2, "restSeconds": 20 }
+    },
+    {
+      "id": "standing_march",
+      "type": "balance",
+      "title": { "en": "Standing March", "zh-TW": "原地踏步" },
+      "description": {
+        "en": "March in place slowly with control.",
+        "zh-TW": "原地慢慢抬膝踏步。"
+      },
+      "cues": {
+        "en": ["Lift knees gently", "Stay upright", "Even tempo"],
+        "zh-TW": ["輕抬膝蓋", "保持站直", "節奏平均"]
+      },
+      "safety": {
+        "en": "Hold a chair if needed.",
+        "zh-TW": "如需要可扶椅子。"
+      },
+      "media": {
+        "videoUrl": "videos/standing_march.mp4",
+        "posterUrl": "images/standing_march.jpg"
+      },
+      "timing": { "mode": "timed", "seconds": 30, "sets": 2, "restSeconds": 20 }
+    },
+    {
+      "id": "sit_to_stand",
+      "type": "strength",
+      "title": { "en": "Sit-to-Stand", "zh-TW": "坐站練習" },
+      "description": {
+        "en": "Sit down and stand up from a chair with control.",
+        "zh-TW": "從椅子坐下再站起，動作穩定。"
+      },
+      "cues": {
+        "en": ["Feet flat", "Push through heels", "Keep chest up"],
+        "zh-TW": ["雙腳平放", "腳跟發力", "胸口打開"]
+      },
+      "safety": {
+        "en": "Use a sturdy chair; pause if dizzy.",
+        "zh-TW": "使用穩固椅子，若頭暈請暫停。"
+      },
+      "media": {
+        "videoUrl": "videos/sit_to_stand.mp4",
+        "posterUrl": "images/sit_to_stand.jpg"
+      },
+      "timing": { "mode": "reps", "reps": 8, "sets": 2, "restSeconds": 30 }
+    },
+    {
+      "id": "wall_pushups",
+      "type": "strength",
+      "title": { "en": "Wall Push-Ups", "zh-TW": "靠牆伏地挺身" },
+      "description": {
+        "en": "Push against the wall with a straight body.",
+        "zh-TW": "身體打直，靠牆做伏地挺身。"
+      },
+      "cues": {
+        "en": ["Hands at shoulder height", "Body straight", "Slow and steady"],
+        "zh-TW": ["手與肩同高", "身體保持一直線", "慢慢推回"]
+      },
+      "safety": {
+        "en": "Step closer to the wall if it feels hard.",
+        "zh-TW": "若感覺吃力，可站近一點。"
+      },
+      "media": {
+        "videoUrl": "videos/wall_pushups.mp4",
+        "posterUrl": "images/wall_pushups.jpg"
+      },
+      "timing": { "mode": "reps", "reps": 8, "sets": 2, "restSeconds": 30 }
+    },
+    {
+      "id": "bodyweight_squats",
+      "type": "strength",
+      "title": { "en": "Bodyweight Squats", "zh-TW": "徒手深蹲" },
+      "description": {
+        "en": "Squat to a comfortable depth and stand tall.",
+        "zh-TW": "蹲到舒服的深度，再站直。"
+      },
+      "cues": {
+        "en": ["Hips back", "Knees track over toes", "Keep chest up"],
+        "zh-TW": ["臀部向後", "膝蓋對準腳尖", "胸口打開"]
+      },
+      "safety": {
+        "en": "Hold a chair if needed or reduce depth.",
+        "zh-TW": "可扶椅或減少下蹲深度。"
+      },
+      "media": {
+        "videoUrl": "videos/bodyweight_squats.mp4",
+        "posterUrl": "images/bodyweight_squats.jpg"
+      },
+      "timing": { "mode": "reps", "reps": 8, "sets": 2, "restSeconds": 30 }
+    },
+    {
+      "id": "calf_raises",
+      "type": "strength",
+      "title": { "en": "Calf Raises", "zh-TW": "提踵" },
+      "description": {
+        "en": "Rise onto your toes, then lower slowly.",
+        "zh-TW": "踮腳上升，再慢慢放下。"
+      },
+      "cues": {
+        "en": ["Hold a chair", "Lift tall", "Control down"],
+        "zh-TW": ["扶著椅子", "向上延伸", "慢慢下降"]
+      },
+      "safety": {
+        "en": "Avoid rocking; move straight up and down.",
+        "zh-TW": "避免搖晃，直上直下。"
+      },
+      "media": {
+        "videoUrl": "videos/calf_raises.mp4",
+        "posterUrl": "images/calf_raises.jpg"
+      },
+      "timing": { "mode": "reps", "reps": 10, "sets": 2, "restSeconds": 20 }
+    },
+    {
+      "id": "glute_bridge",
+      "type": "strength",
+      "title": { "en": "Glute Bridge", "zh-TW": "臀橋" },
+      "description": {
+        "en": "Lie on your back and lift hips gently.",
+        "zh-TW": "平躺後輕輕抬起臀部。"
+      },
+      "cues": {
+        "en": ["Feet hip-width", "Squeeze glutes", "Avoid arching"],
+        "zh-TW": ["雙腳與髖同寬", "收縮臀部", "避免腰部過拱"]
+      },
+      "safety": {
+        "en": "Stop if you feel lower-back discomfort.",
+        "zh-TW": "若腰部不適，請停止。"
+      },
+      "media": {
+        "videoUrl": "videos/glute_bridge.mp4",
+        "posterUrl": "images/glute_bridge.jpg"
+      },
+      "timing": { "mode": "reps", "reps": 8, "sets": 2, "restSeconds": 30 }
+    },
+    {
+      "id": "bird_dog",
+      "type": "core",
+      "title": { "en": "Bird Dog", "zh-TW": "鳥狗式" },
+      "description": {
+        "en": "Extend opposite arm and leg, hold briefly, then switch.",
+        "zh-TW": "伸出對側手腳，短暫停留後換邊。"
+      },
+      "cues": {
+        "en": ["Keep hips level", "Long spine", "Slow switch"],
+        "zh-TW": ["骨盆保持水平", "脊椎拉長", "慢慢換邊"]
+      },
+      "safety": {
+        "en": "Place a mat under knees.",
+        "zh-TW": "膝蓋下可墊瑜珈墊。"
+      },
+      "media": {
+        "videoUrl": "videos/bird_dog.mp4",
+        "posterUrl": "images/bird_dog.jpg"
+      },
+      "timing": { "mode": "reps", "reps": 6, "sets": 2, "restSeconds": 20, "perSide": true }
+    },
+    {
+      "id": "dead_bug",
+      "type": "core",
+      "title": { "en": "Dead Bug", "zh-TW": "死蟲式" },
+      "description": {
+        "en": "Lower opposite arm and leg slowly, then return.",
+        "zh-TW": "對側手腳慢慢下放再回來。"
+      },
+      "cues": {
+        "en": ["Lower slowly", "Keep back flat", "Exhale on movement"],
+        "zh-TW": ["慢慢下放", "背部保持貼地", "動作時吐氣"]
+      },
+      "safety": {
+        "en": "Reduce range if back lifts.",
+        "zh-TW": "若背部離地，請減少幅度。"
+      },
+      "media": {
+        "videoUrl": "videos/dead_bug.mp4",
+        "posterUrl": "images/dead_bug.jpg"
+      },
+      "timing": { "mode": "reps", "reps": 6, "sets": 2, "restSeconds": 20, "perSide": true }
+    },
+    {
+      "id": "seated_knee_lifts",
+      "type": "core",
+      "title": { "en": "Seated Knee Lifts", "zh-TW": "坐姿抬膝" },
+      "description": {
+        "en": "Sit tall and lift one knee at a time.",
+        "zh-TW": "坐直，左右交替抬膝。"
+      },
+      "cues": {
+        "en": ["Sit tall", "Lift slowly", "Avoid leaning back"],
+        "zh-TW": ["坐直", "慢慢抬起", "避免後仰"]
+      },
+      "safety": {
+        "en": "Hold the chair sides if needed.",
+        "zh-TW": "如需要可扶椅子兩側。"
+      },
+      "media": {
+        "videoUrl": "videos/seated_knee_lifts.mp4",
+        "posterUrl": "images/seated_knee_lifts.jpg"
+      },
+      "timing": { "mode": "reps", "reps": 8, "sets": 2, "restSeconds": 20, "perSide": true }
+    },
+    {
+      "id": "chest_opener",
+      "type": "mobility",
+      "title": { "en": "Chest Opener Stretch", "zh-TW": "胸口伸展" },
+      "description": {
+        "en": "Open the chest and shoulders gently.",
+        "zh-TW": "溫和打開胸口與肩膀。"
+      },
+      "cues": {
+        "en": ["Relax shoulders", "Breathe slowly", "No pain"],
+        "zh-TW": ["肩膀放鬆", "慢慢呼吸", "避免疼痛"]
+      },
+      "safety": {
+        "en": "Keep the stretch gentle.",
+        "zh-TW": "伸展保持溫和即可。"
+      },
+      "media": {
+        "videoUrl": "videos/chest_opener.mp4",
+        "posterUrl": "images/chest_opener.jpg"
+      },
+      "timing": { "mode": "hold", "seconds": 20, "sets": 2, "restSeconds": 10 }
+    },
+    {
+      "id": "seated_hamstring_stretch",
+      "type": "mobility",
+      "title": { "en": "Seated Hamstring Stretch", "zh-TW": "坐姿腿後側伸展" },
+      "description": {
+        "en": "Straighten one leg and lean forward slightly.",
+        "zh-TW": "伸直一腿，微微前傾。"
+      },
+      "cues": {
+        "en": ["Long spine", "Hinge at hips", "Breathe"],
+        "zh-TW": ["脊椎拉長", "髖部前傾", "穩定呼吸"]
+      },
+      "safety": {
+        "en": "Stop before pain; a mild stretch is enough.",
+        "zh-TW": "不要到疼痛，只需輕微拉伸感。"
+      },
+      "media": {
+        "videoUrl": "videos/seated_hamstring_stretch.mp4",
+        "posterUrl": "images/seated_hamstring_stretch.jpg"
+      },
+      "timing": { "mode": "hold", "seconds": 20, "sets": 1, "restSeconds": 10, "perSide": true }
+    },
+    {
+      "id": "hip_flexor_stretch",
+      "type": "mobility",
+      "title": { "en": "Hip Flexor Stretch (Supported)", "zh-TW": "髖屈肌伸展（扶支撐）" },
+      "description": {
+        "en": "Step one foot back and gently stretch the front of the hip.",
+        "zh-TW": "一腳往後跨，伸展前側髖部。"
+      },
+      "cues": {
+        "en": ["Keep torso upright", "Small step", "Gentle stretch"],
+        "zh-TW": ["身體保持直立", "跨小步", "溫和伸展"]
+      },
+      "safety": {
+        "en": "Hold a wall or chair for balance.",
+        "zh-TW": "可扶牆或椅子保持平衡。"
+      },
+      "media": {
+        "videoUrl": "videos/hip_flexor_stretch.mp4",
+        "posterUrl": "images/hip_flexor_stretch.jpg"
+      },
+      "timing": { "mode": "hold", "seconds": 20, "sets": 1, "restSeconds": 10, "perSide": true }
+    },
+    {
+      "id": "cat_cow",
+      "type": "mobility",
+      "title": { "en": "Cat-Cow", "zh-TW": "貓牛式" },
+      "description": {
+        "en": "Alternate arching and rounding your back.",
+        "zh-TW": "背部做拱與圓的交替動作。"
+      },
+      "cues": {
+        "en": ["Move with breath", "Slow and smooth", "Keep shoulders relaxed"],
+        "zh-TW": ["配合呼吸", "慢而順暢", "肩膀放鬆"]
+      },
+      "safety": {
+        "en": "Place a mat under knees.",
+        "zh-TW": "膝蓋下可墊瑜珈墊。"
+      },
+      "media": {
+        "videoUrl": "videos/cat_cow.mp4",
+        "posterUrl": "images/cat_cow.jpg"
+      },
+      "timing": { "mode": "reps", "reps": 6, "sets": 2, "restSeconds": 10 }
+    },
+    {
+      "id": "ankle_circles",
+      "type": "mobility",
+      "title": { "en": "Ankle Circles", "zh-TW": "腳踝畫圓" },
+      "description": {
+        "en": "Lift one foot and draw slow circles with the ankle.",
+        "zh-TW": "抬起一腳，用腳踝慢慢畫圓。"
+      },
+      "cues": {
+        "en": ["Small circles", "Slow pace", "Relax toes"],
+        "zh-TW": ["小圓即可", "慢慢轉動", "放鬆腳趾"]
+      },
+      "safety": {
+        "en": "Stop if you feel pain.",
+        "zh-TW": "若疼痛請停止。"
+      },
+      "media": {
+        "videoUrl": "videos/ankle_circles.mp4",
+        "posterUrl": "images/ankle_circles.jpg"
+      },
+      "timing": { "mode": "reps", "reps": 6, "sets": 1, "restSeconds": 10, "perSide": true }
+    }
+  ]
+}

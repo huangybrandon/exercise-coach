@@ -1,0 +1,51 @@
+{
+  "routines": [
+    {
+      "id": "balance_basics_15",
+      "title": { "en": "Balance Basics (15 min)", "zh-TW": "基礎平衡（15分鐘）" },
+      "durationMinutes": 15,
+      "items": [
+        { "exerciseId": "weight_shifts" },
+        { "exerciseId": "standing_march" },
+        { "exerciseId": "tandem_stance" },
+        { "exerciseId": "single_leg_balance" },
+        { "exerciseId": "heel_to_toe_walk" },
+        { "exerciseId": "calf_raises" },
+        { "exerciseId": "chest_opener" }
+      ]
+    },
+    {
+      "id": "core_stability_20",
+      "title": { "en": "Core + Stability (20 min)", "zh-TW": "核心穩定（20分鐘）" },
+      "durationMinutes": 20,
+      "items": [
+        { "exerciseId": "cat_cow" },
+        { "exerciseId": "bird_dog" },
+        { "exerciseId": "dead_bug" },
+        { "exerciseId": "seated_knee_lifts" },
+        { "exerciseId": "glute_bridge" },
+        { "exerciseId": "sit_to_stand" },
+        { "exerciseId": "seated_hamstring_stretch" }
+      ]
+    },
+    {
+      "id": "full_body_balance_30",
+      "title": { "en": "Full Body + Balance (30 min)", "zh-TW": "全身與平衡（30分鐘）" },
+      "durationMinutes": 30,
+      "items": [
+        { "exerciseId": "weight_shifts" },
+        { "exerciseId": "standing_march" },
+        { "exerciseId": "tandem_stance" },
+        { "exerciseId": "single_leg_balance" },
+        { "exerciseId": "sit_to_stand" },
+        { "exerciseId": "bodyweight_squats" },
+        { "exerciseId": "wall_pushups" },
+        { "exerciseId": "bird_dog" },
+        { "exerciseId": "dead_bug" },
+        { "exerciseId": "glute_bridge" },
+        { "exerciseId": "hip_flexor_stretch" },
+        { "exerciseId": "chest_opener" }
+      ]
+    }
+  ]
+}
