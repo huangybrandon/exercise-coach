@@ -1,6 +1,6 @@
 import type { PlayerExercise } from "@/lib/types";
 
-export type PlayerPhase = "prep" | "active" | "rest" | "complete";
+export type PlayerPhase = "prep" | "ready" | "active" | "rest" | "complete";
 
 export type PlayerState = {
   phase: PlayerPhase;

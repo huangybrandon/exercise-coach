@@ -2,6 +2,7 @@ import type { ExerciseTiming, PlayerExercise } from "@/lib/types";
 import type { PlayerAction, PlayerState } from "@/lib/player/types";
 
 const PREP_SECONDS = 0;
+const READY_SECONDS = 5;
 const REST_SECONDS = 15;
 
 function getExerciseDuration(timing: ExerciseTiming): number {
@@ -83,7 +84,12 @@ export function playerReducer(state: PlayerState, action: PlayerAction): PlayerS
     }
     case "TICK": {
       if (state.paused) return state;
-      if (state.phase === "prep" || state.phase === "active" || state.phase === "rest") {
+      if (
+        state.phase === "prep" ||
+        state.phase === "ready" ||
+        state.phase === "active" ||
+        state.phase === "rest"
+      ) {
         if (state.phase === "active") {
           const exercise = state.exercises[state.currentIndex];
           if (exercise?.timing?.mode === "reps") {
@@ -106,6 +112,24 @@ export function playerReducer(state: PlayerState, action: PlayerAction): PlayerS
       const hasSides = Boolean(timing.perSide) && timing.mode !== "reps";
 
       if (state.phase === "prep") {
+        if (timing.mode === "reps") {
+          return {
+            ...state,
+            phase: "active",
+            remaining: getExerciseDuration(timing),
+            paused: false,
+          };
+        }
+
+        return {
+          ...state,
+          phase: "ready",
+          remaining: READY_SECONDS,
+          paused: false,
+        };
+      }
+
+      if (state.phase === "ready") {
         return {
           ...state,
           phase: "active",
@@ -139,12 +163,23 @@ export function playerReducer(state: PlayerState, action: PlayerAction): PlayerS
 
       if (state.phase === "rest") {
         const reset = resetForExercise(exercise);
+        const nextSet = state.currentSet + 1;
+        if (timing.mode === "reps") {
+          return {
+            ...state,
+            phase: "active",
+            currentSet: nextSet,
+            currentSide: reset.currentSide,
+            remaining: getExerciseDuration(timing),
+          };
+        }
+
         return {
           ...state,
-          phase: "active",
-          currentSet: state.currentSet + 1,
+          phase: "ready",
+          currentSet: nextSet,
           currentSide: reset.currentSide,
-          remaining: getExerciseDuration(timing),
+          remaining: READY_SECONDS,
         };
       }
 

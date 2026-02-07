@@ -51,10 +51,13 @@ export default function PlayerUI({
   const timing = currentExercise.timing;
   const isRest = state.phase === "rest";
   const isPrep = state.phase === "prep";
+  const isReady = state.phase === "ready";
   const isActive = state.phase === "active";
   const isRepBased = timing.mode === "reps";
 
-  const label = isPrep
+  const label = isReady
+    ? t(language, "getReady")
+    : isPrep
     ? t(language, "ready")
     : isRest
     ? t(language, "rest")
@@ -91,10 +94,16 @@ export default function PlayerUI({
         </div>
 
         <div className="flex flex-col items-center gap-2">
-          <div className="text-6xl font-semibold text-slate-900">
+          <div
+            className={`text-6xl font-semibold ${
+              isReady ? "text-orange-600" : "text-slate-900"
+            }`}
+          >
             {isPrep
               ? "—"
               : isRest
+              ? formatTime(state.remaining)
+              : isReady
               ? formatTime(state.remaining)
               : timing.mode === "reps"
               ? timing.reps ?? 0
@@ -146,7 +155,7 @@ export default function PlayerUI({
           >
             {t(language, "backButton")}
           </button>
-          {!(isPrep && isRepBased) && (
+          {!(isPrep && isRepBased) && !isReady && (
             <button
               onClick={onNext}
               className="flex-1 rounded-full bg-emerald-700 px-6 py-3 text-lg font-semibold text-white hover:bg-emerald-600"

@@ -62,6 +62,9 @@ export function usePlayerState(params: {
     if (state.phase === "active" && state.remaining === 0 && !isRepBased) {
       dispatch({ type: "NEXT" });
     }
+    if (state.phase === "ready" && state.remaining === 0) {
+      dispatch({ type: "NEXT" });
+    }
     if (state.phase === "rest" && state.remaining === 0) {
       dispatch({ type: "NEXT" });
     }
