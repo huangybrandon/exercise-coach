@@ -6,12 +6,19 @@ import { getSession, onAuthStateChange, signInWithGoogle, signOut } from "@/lib/
 import LanguageToggle from "@/components/LanguageToggle";
 import { useLanguage } from "@/components/LanguageProvider";
 import { t } from "@/lib/i18n";
+import { isInAppBrowser } from "@/lib/inapp";
 
 export default function AuthGate({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { language } = useLanguage();
+  const [inAppBrowser, setInAppBrowser] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    setInAppBrowser(isInAppBrowser(window.navigator.userAgent));
+  }, []);
 
   useEffect(() => {
     let mounted = true;
@@ -67,12 +74,33 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
           <p className="mt-2 text-secondary">
             {t(language, "signInBody")}
           </p>
+          {inAppBrowser && (
+            <div className="mt-4 rounded-2xl bg-amber-50 px-4 py-3 text-secondary text-amber-900">
+              Google sign-in doesn’t work inside in-app browsers. Please open this page in Safari or Chrome.
+            </div>
+          )}
           <button
             className="mt-6 w-full rounded-full bg-slate-900 px-6 py-3 text-lg font-semibold text-white hover:bg-slate-800"
             onClick={() => signInWithGoogle()}
           >
             {t(language, "signInButton")}
           </button>
+          {inAppBrowser && (
+            <div className="mt-3 flex flex-col gap-2 text-sm">
+              <button
+                className="w-full rounded-full border border-slate-300 px-4 py-2 text-base font-semibold text-slate-700 hover:bg-slate-100"
+                onClick={() => window.open(window.location.href, "_blank")}
+              >
+                Open in browser
+              </button>
+              <button
+                className="w-full rounded-full border border-slate-200 px-4 py-2 text-base font-semibold text-slate-700 hover:bg-slate-50"
+                onClick={() => navigator.clipboard?.writeText(window.location.href)}
+              >
+                Copy link
+              </button>
+            </div>
+          )}
         </div>
       </div>
     );
