@@ -5,6 +5,7 @@ import Link from "next/link";
 import { getSession } from "@/lib/supabase/auth";
 import { getRoutines } from "@/lib/data/routines";
 import { getStreak } from "@/lib/data/streaks";
+import { getLastCompletedRoutineId } from "@/lib/data/sessions";
 import type { Routine, Streak } from "@/lib/types";
 import { useLanguage } from "@/components/LanguageProvider";
 import { t } from "@/lib/i18n";
@@ -22,6 +23,7 @@ export default function HomeDashboard() {
   const [error, setError] = useState<string | null>(null);
   const [routines, setRoutines] = useState<Routine[]>([]);
   const [streak, setStreak] = useState<Streak>(fallbackStreak);
+  const [nextRoutineId, setNextRoutineId] = useState<string | null>(null);
 
   const greeting = useMemo(() => {
     const hour = new Date().getHours();
@@ -40,15 +42,26 @@ export default function HomeDashboard() {
           throw new Error("No active session found.");
         }
 
-        const [routineData, streakData] = await Promise.all([
+        const [routineData, streakData, lastRoutineId] = await Promise.all([
           getRoutines(language),
           getStreak(session.user.id),
+          getLastCompletedRoutineId(session.user.id),
         ]);
 
         if (!mounted) return;
 
         setRoutines(routineData);
         setStreak(streakData ?? { ...fallbackStreak, userId: session.user.id });
+        if (routineData.length === 0) {
+          setNextRoutineId(null);
+        } else if (!lastRoutineId) {
+          setNextRoutineId(routineData[0].id);
+        } else {
+          const lastIndex = routineData.findIndex((routine) => routine.id === lastRoutineId);
+          const nextIndex =
+            lastIndex === -1 || lastIndex === routineData.length - 1 ? 0 : lastIndex + 1;
+          setNextRoutineId(routineData[nextIndex].id);
+        }
         setLoading(false);
       } catch (err) {
         if (!mounted) return;
@@ -109,19 +122,19 @@ export default function HomeDashboard() {
           <p className="mt-2 text-secondary">
             {t(language, "pickDuration")}
           </p>
-          {routines[0] ? (
+          {nextRoutineId ? (
             <Link
-              href={`/routines/${routines[0].id}`}
+              href={`/routines/${nextRoutineId}`}
               className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-emerald-700 px-6 py-4 text-lg font-semibold text-white hover:bg-emerald-600"
             >
-              {t(language, "startLast")}
+              {t(language, "startRoutine")}
             </Link>
           ) : (
             <button
               className="mt-6 w-full cursor-not-allowed rounded-full bg-slate-200 px-6 py-4 text-lg font-semibold text-slate-500"
               disabled
             >
-              Start last routine
+              {t(language, "startRoutine")}
             </button>
           )}
         </div>
@@ -163,7 +176,7 @@ export default function HomeDashboard() {
               className="flex flex-col gap-2 rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4 text-left transition hover:border-emerald-200 hover:bg-emerald-50"
             >
               <div className="flex items-center justify-between">
-                <span className="text-lg font-semibold text-slate-900">{routine.title}</span>
+                <span className="text-xl font-semibold text-slate-900">{routine.title}</span>
                 <span className="rounded-full bg-white px-3 py-1 text-sm font-semibold text-slate-600">
                   {routine.durationMinutes} min
                 </span>

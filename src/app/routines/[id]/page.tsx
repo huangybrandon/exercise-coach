@@ -133,7 +133,7 @@ function RoutinePreviewContent() {
               className="flex items-center justify-between rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4"
             >
               <div>
-                <p className="text-lg font-semibold text-slate-900">
+                <p className="text-xl font-semibold text-slate-900">
                   {index + 1}. {exercise.translation.title}
                 </p>
                 <p className="text-secondary">{exercise.translation.description}</p>

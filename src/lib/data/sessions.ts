@@ -68,3 +68,21 @@ export async function getMonthlySessions(params: {
     durationMinutes: row.duration_minutes,
   }));
 }
+
+export async function getLastCompletedRoutineId(userId: string): Promise<string | null> {
+  const supabase = createSupabaseClient();
+
+  const { data, error } = await supabase
+    .from("sessions")
+    .select("routine_id, completed_at")
+    .eq("user_id", userId)
+    .order("completed_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  if (error) {
+    throw new Error(`Failed to load last routine: ${error.message}`);
+  }
+
+  return data?.routine_id ?? null;
+}

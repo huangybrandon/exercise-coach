@@ -30,7 +30,7 @@ h4 {
 
 @layer utilities {
   .text-secondary {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 1.65;
     color: var(--muted);
   }

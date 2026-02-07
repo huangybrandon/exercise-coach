@@ -63,7 +63,11 @@ export default function PlayerUI({
     : t(language, "seconds");
 
   return (
-    <section className="rounded-3xl bg-white p-8 shadow-sm">
+    <section
+      className={`rounded-3xl p-8 shadow-sm ${
+        isRest ? "bg-slate-200" : "bg-white"
+      }`}
+    >
       <div className="flex items-center justify-between">
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
@@ -114,7 +118,7 @@ export default function PlayerUI({
         </div>
 
         {isRest && (
-          <div className="rounded-2xl bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+          <div className="rounded-2xl bg-emerald-50 px-4 py-3 text-secondary text-emerald-800">
             {t(language, "next")}: {currentExercise.translation.title} — {t(language, "setLabel")}{" "}
             {state.currentSet + 1} {t(language, "of")} {timing.sets}
           </div>
