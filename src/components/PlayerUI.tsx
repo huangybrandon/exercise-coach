@@ -94,6 +94,8 @@ export default function PlayerUI({
           <div className="text-6xl font-semibold text-slate-900">
             {isPrep
               ? "—"
+              : isRest
+              ? formatTime(state.remaining)
               : timing.mode === "reps"
               ? timing.reps ?? 0
               : formatTime(state.remaining)}
