@@ -5,8 +5,8 @@ import type { Session } from "@supabase/supabase-js";
 import { getSession, onAuthStateChange, signInWithGoogle, signOut } from "@/lib/supabase/auth";
 import LanguageToggle from "@/components/LanguageToggle";
 import { useLanguage } from "@/components/LanguageProvider";
-import { t } from "@/lib/i18n";
-import { isInAppBrowser } from "@/lib/inapp";
+import { t, tWithParams } from "@/lib/i18n";
+import { getPreferredBrowserLabel, isInAppBrowser } from "@/lib/inapp";
 
 export default function AuthGate({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
@@ -14,10 +14,13 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
   const [error, setError] = useState<string | null>(null);
   const { language } = useLanguage();
   const [inAppBrowser, setInAppBrowser] = useState(false);
+  const [browserLabel, setBrowserLabel] = useState<string>("your browser");
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    setInAppBrowser(isInAppBrowser(window.navigator.userAgent));
+    const ua = window.navigator.userAgent;
+    setInAppBrowser(isInAppBrowser(ua));
+    setBrowserLabel(getPreferredBrowserLabel(ua));
   }, []);
 
   useEffect(() => {
@@ -76,7 +79,7 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
           </p>
           {inAppBrowser && (
             <div className="mt-4 rounded-2xl bg-amber-50 px-4 py-3 text-secondary text-amber-900">
-              Google sign-in doesn’t work inside in-app browsers. Please open this page in Safari or Chrome.
+              {tWithParams(language, "inAppWarning", { browser: browserLabel })}
             </div>
           )}
           <button
@@ -91,13 +94,13 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
                 className="w-full rounded-full border border-slate-300 px-4 py-2 text-base font-semibold text-slate-700 hover:bg-slate-100"
                 onClick={() => window.open(window.location.href, "_blank")}
               >
-                Open in browser
+                {t(language, "openInBrowser")}
               </button>
               <button
                 className="w-full rounded-full border border-slate-200 px-4 py-2 text-base font-semibold text-slate-700 hover:bg-slate-50"
                 onClick={() => navigator.clipboard?.writeText(window.location.href)}
               >
-                Copy link
+                {t(language, "copyLink")}
               </button>
             </div>
           )}

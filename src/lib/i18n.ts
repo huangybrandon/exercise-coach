@@ -6,6 +6,9 @@ const strings = {
     signInTitle: "Sign in to continue",
     signInBody: "Use your Google account to access your routines and streak.",
     signInButton: "Sign in with Google",
+    inAppWarning: "Google sign-in doesn’t work inside in-app browsers. Please open this page in {{browser}}.",
+    openInBrowser: "Open in browser",
+    copyLink: "Copy link",
     signOut: "Sign out",
     loading: "Loading…",
     errorTitle: "Something went wrong",
@@ -64,6 +67,9 @@ const strings = {
     signInTitle: "登入以繼續",
     signInBody: "使用 Google 帳號以存取課表與連續天數。",
     signInButton: "使用 Google 登入",
+    inAppWarning: "Google 登入無法在 App 內建瀏覽器中使用，請改用 {{browser}} 開啟此頁面。",
+    openInBrowser: "在瀏覽器中開啟",
+    copyLink: "複製連結",
     signOut: "登出",
     loading: "載入中…",
     errorTitle: "發生錯誤",
@@ -121,4 +127,16 @@ const strings = {
 
 export function t(lang: SupportedLanguage, key: keyof (typeof strings)["en"]) {
   return strings[lang][key] ?? strings.en[key];
+}
+
+export function tWithParams(
+  lang: SupportedLanguage,
+  key: keyof (typeof strings)["en"],
+  params: Record<string, string>
+) {
+  const base = t(lang, key);
+  return Object.keys(params).reduce(
+    (acc, param) => acc.replaceAll(`{{${param}}}`, params[param]),
+    base
+  );
 }

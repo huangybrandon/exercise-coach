@@ -14,3 +14,14 @@ export function isInAppBrowser(userAgent: string) {
     ua.includes("tiktok")
   );
 }
+
+export function getPreferredBrowserLabel(userAgent: string) {
+  const ua = userAgent.toLowerCase();
+  if (ua.includes("iphone") || ua.includes("ipad") || ua.includes("ipod")) {
+    return "Safari";
+  }
+  if (ua.includes("android")) {
+    return "Chrome";
+  }
+  return "your browser";
+}
