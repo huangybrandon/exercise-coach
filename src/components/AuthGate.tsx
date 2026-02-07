@@ -15,12 +15,15 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
   const { language } = useLanguage();
   const [inAppBrowser, setInAppBrowser] = useState(false);
   const [browserLabel, setBrowserLabel] = useState<string>("your browser");
+  const [actionMessage, setActionMessage] = useState<string | null>(null);
+  const [currentUrl, setCurrentUrl] = useState<string>("");
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     const ua = window.navigator.userAgent;
     setInAppBrowser(isInAppBrowser(ua));
     setBrowserLabel(getPreferredBrowserLabel(ua));
+    setCurrentUrl(window.location.href);
   }, []);
 
   useEffect(() => {
@@ -92,16 +95,52 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
             <div className="mt-3 flex flex-col gap-2 text-sm">
               <button
                 className="w-full rounded-full border border-slate-300 px-4 py-2 text-base font-semibold text-slate-700 hover:bg-slate-100"
-                onClick={() => window.open(window.location.href, "_blank")}
+                onClick={() => {
+                  setActionMessage(null);
+                  const opened = window.open(window.location.href, "_blank", "noopener,noreferrer");
+                  if (!opened) {
+                    setActionMessage(t(language, "openFailed"));
+                  }
+                }}
               >
                 {t(language, "openInBrowser")}
               </button>
               <button
                 className="w-full rounded-full border border-slate-200 px-4 py-2 text-base font-semibold text-slate-700 hover:bg-slate-50"
-                onClick={() => navigator.clipboard?.writeText(window.location.href)}
+                onClick={async () => {
+                  setActionMessage(null);
+                  try {
+                    if (navigator.share) {
+                      await navigator.share({ url: currentUrl });
+                      setActionMessage(t(language, "linkCopied"));
+                      return;
+                    }
+                    if (navigator.clipboard?.writeText) {
+                      await navigator.clipboard.writeText(currentUrl);
+                      setActionMessage(t(language, "linkCopied"));
+                      return;
+                    }
+                    throw new Error("Clipboard not available");
+                  } catch {
+                    setActionMessage(t(language, "linkCopyFailed"));
+                  }
+                }}
               >
                 {t(language, "copyLink")}
               </button>
+              {actionMessage && (
+                <div className="rounded-2xl bg-slate-50 px-4 py-3 text-secondary text-slate-700">
+                  {actionMessage}
+                </div>
+              )}
+              <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left">
+                <p className="text-secondary">{t(language, "linkHelp")}</p>
+                <input
+                  className="mt-2 w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700"
+                  value={currentUrl}
+                  readOnly
+                />
+              </div>
             </div>
           )}
         </div>
